@@ -5,9 +5,9 @@ module.exports = function(config) {
     reporters: ['spec'],
     browsers: ['PhantomJS'],
     files: [
-      'app/vendor/jquery/dist/jquery.min.js',
-      'app/src/js/**/*.js',
-      'app/tests/**/*.js'
+      '../app/vendor/jquery/dist/jquery.min.js',
+      '../app/src/js/**/*.js',
+      '../app/tests/**/*.spec.js'
     ]
   });
 };
