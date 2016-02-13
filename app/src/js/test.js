@@ -10,6 +10,8 @@ window.simpleTest = (function(){
 		}
 	};
 
+	document.write("this is a test");
+
 	return module;
 
 })();
