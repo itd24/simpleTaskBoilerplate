@@ -5,21 +5,52 @@ var plugins = require('gulp-load-plugins')();
 var _ = require("lodash");
 var config = require('./package.json');
 
-function getTask(task,options) {
+/**
+ * global required tasks, like deleting the content of the dist folder
+ */
+var globalDependencies = ['clear'];
+
+/**
+ * helper functions
+ */
+
+function getTask(task, options) {
 	options = options || {};
-	var configuration = _.extend({},config,options);
+	var configuration = _.extend({}, config, options);
 	return require('./gulp/tasks/' + task)(configuration, gulp, plugins);
 }
+
+function gulpTask(taskname, task, dependencies, options) {
+	dependencies = dependencies || [];
+	options = options || {};
+
+	task = task || taskname;
+
+	_.extend(dependencies,globalDependencies);
+
+	dependencies = _.filter(dependencies, function(a) {
+		return a != task;
+	});
+
+	gulp.task(taskname,dependencies,getTask(task,options));
+}
+
+
 
 /**
  * gulp subtasks definition
  */
-gulp.task('jsvalidate',getTask('jsvalidate'));
-gulp.task('jslint',['jsvalidate'],getTask('jslint'));
-gulp.task('sasslint',getTask('sasslint'));
-gulp.task('serve',getTask('webserver'));
-gulp.task('karma',getTask('karmatest',{singleRun:true}));
-gulp.task('karmarun',getTask('karmatest',{singleRun:false}));
+gulpTask('jsvalidate');
+gulpTask('jslint','jslint',['jsvalidate']);
+gulpTask('serve','webserver');
+gulpTask('karma','karma',[],{
+	singleRun: true
+});
+gulpTask('karmarun','karma',[],{
+	singleRun: false
+});
+gulpTask('scss');
+gulpTask('clear');
 /**
  * end gulp subtasks definition
  */
@@ -27,6 +58,6 @@ gulp.task('karmarun',getTask('karmatest',{singleRun:false}));
 /**
  * gulp main tasks
  */
-gulp.task('default',['sasslint'],function(){
+gulp.task('default', ['scss'], function() {
 
 });
