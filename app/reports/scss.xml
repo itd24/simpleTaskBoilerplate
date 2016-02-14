@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="1.5.6">
+  <file name="E:/HOMEWORK/projects/simpleTaskBoilerplate/app/src/scss/_base.scss">
+    <error source="HexLength" line="1" column="14" length="7" severity="warning" message="Color `#00ff00` should be written as `#0f0`" />
+  </file>
+  <file name="E:/HOMEWORK/projects/simpleTaskBoilerplate/app/src/scss/_body.scss">
+    <error source="SpaceBeforeBrace" line="1" column="1" length="1" severity="warning" message="Opening curly brace `{` should be preceded by one space" />
+    <error source="Indentation" line="2" column="1" length="1" severity="warning" message="Line should be indented with spaces, not tabs" />
+    <error source="SpaceAfterPropertyColon" line="2" column="2" length="28" severity="warning" message="Colon after property should be followed by one space" />
+    <error source="FinalNewline" line="3" column="1" length="1" severity="warning" message="Files should end with a trailing newline" />
+  </file>
+  <file name="E:/HOMEWORK/projects/simpleTaskBoilerplate/app/src/scss/main.scss">
+    <error source="StringQuotes" line="1" column="9" length="6" severity="warning" message="Prefer single quoted strings" />
+    <error source="FinalNewline" line="2" column="1" length="1" severity="warning" message="Files should end with a trailing newline" />
+    <error source="StringQuotes" line="2" column="9" length="6" severity="warning" message="Prefer single quoted strings" />
+  </file>
+</checkstyle>
+

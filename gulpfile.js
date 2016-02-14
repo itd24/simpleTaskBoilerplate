@@ -26,10 +26,10 @@ function gulpTask(taskname, task, dependencies, options) {
 
 	task = task || taskname;
 
-	_.extend(dependencies,globalDependencies);
+	dependencies = _.concat(dependencies,globalDependencies);
 
 	dependencies = _.filter(dependencies, function(a) {
-		return a != task;
+		return a != taskname;
 	});
 
 	gulp.task(taskname,dependencies,getTask(task,options));
@@ -49,7 +49,8 @@ gulpTask('karma','karma',[],{
 gulpTask('karmarun','karma',[],{
 	singleRun: false
 });
-gulpTask('scss');
+gulpTask('sasslint');
+gulpTask('sass','sass',['sasslint']);
 gulpTask('clear');
 /**
  * end gulp subtasks definition
@@ -58,6 +59,6 @@ gulpTask('clear');
 /**
  * gulp main tasks
  */
-gulp.task('default', ['scss'], function() {
+gulp.task('default', ['sass'], function() {
 
 });
