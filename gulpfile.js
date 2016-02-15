@@ -47,11 +47,12 @@ gulpTask('karma','karma',[],{
 	singleRun: true
 });
 gulpTask('karmarun','karma',[],{
-	singleRun: false
+	singleRun: false 
 });
 gulpTask('sasslint');
 gulpTask('sass','sass',['sasslint']);
 gulpTask('clear');
+gulpTask('jsminify','jsminify',['jslint']);
 /**
  * end gulp subtasks definition
  */
@@ -59,6 +60,6 @@ gulpTask('clear');
 /**
  * gulp main tasks
  */
-gulp.task('default', ['sass'], function() {
+gulp.task('default', ['jsminify'], function() {
 
 });

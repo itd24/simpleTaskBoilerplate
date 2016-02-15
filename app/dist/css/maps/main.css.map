@@ -1,1 +1,0 @@
-{"version":3,"file":"main.css","sources":["main.scss","_base.scss","_body.scss"],"sourcesContent":["@import \"base\";\r\n@import \"body\";","$background: #00ff00;\r\n","body{\r\n\tbackground-color:$background;\r\n}"],"mappings":"AEAA,IAAI,AAAA,CACH,gBAAgB,CDDJ,IAAO,CCEnB","names":[],"sourceRoot":"/source/"}
